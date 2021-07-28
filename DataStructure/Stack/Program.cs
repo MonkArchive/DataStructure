@@ -1,12 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace Stack
+namespace StackSln
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IStack<int> s = new Stack<int>(100);
+
+            try
+            {
+                s.Push(1);
+                s.Push(0);
+                s.Push(1);
+
+                Console.WriteLine(s.Pop());
+                Console.WriteLine(s.Pop());
+                Console.WriteLine(s.Pop());
+                Console.WriteLine(s.Pop());
+                Console.WriteLine(s.Pop());
+                Console.WriteLine(s.Pop());
+                Console.WriteLine(s.Pop());
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
