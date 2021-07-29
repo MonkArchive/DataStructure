@@ -1,4 +1,6 @@
-﻿namespace Queues
+﻿using System;
+
+namespace Queues
 {
     abstract public class BaseQueue<T> : IQueue<T>
     {
@@ -9,6 +11,7 @@
 
         public BaseQueue(int size)
         {
+            this.size = size;
             list = new T[size];
             front = 0;
             rear = -1;
@@ -16,7 +19,10 @@
 
         public virtual void Add(T item)
         {
-            list[++rear] = item;
+            if (!IsFull())
+                list[++rear] = item;
+            else
+                throw new Exception("Queue is already full");
         }
 
         public virtual void Clear()
@@ -42,21 +48,55 @@
 
         public T Peek()
         {
-            return list[front];
+            if (!IsEmpty())
+                return list[front];
+            else
+                throw new Exception("Queue is empty");
         }
 
         public virtual T Remove()
         {
-            return list[front++];
+            if (!IsEmpty())
+                return list[front++];
+            else
+                throw new Exception("Queue is already empty");
         }
     }
 
     public class SimpleQueue<T> : BaseQueue<T>
     {
-        public SimpleQueue(int size) : base (size)
+        public SimpleQueue(int size) : base(size)
         {
 
         }
+    }
+
+    public class FixedFrontQueue<T> : BaseQueue<T>
+    {
+        public FixedFrontQueue(int size) : base(size) { }
+
+        public override T Remove()
+        {
+            // Remove The Item
+            T item = base.Remove();
+
+            // Shift All Items Up
+            for (int i = front; i <= rear; i++)
+                list[i - 1] = list[i];
+
+            // Update Our Pointers
+            front--;
+            rear--;
+
+            // Return The Item
+            return item;
+        }
+    }
+
+    public class BulkShiftQueue<T> : BaseQueue<T>
+    {
+        public BulkShiftQueue(int size) : base(size) { }
+
     }
 
     public interface IQueue<T>

@@ -6,7 +6,24 @@ namespace Queues
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IQueue<int> queue = new FixedFrontQueue<int>(5);
+
+            queue.Add(1);
+            queue.Add(2);
+            queue.Add(3);
+
+            Console.WriteLine(queue.Remove());
+            Console.WriteLine(queue.Remove());
+            Console.WriteLine(queue.Remove());
+
+            queue.Add(4);
+            queue.Add(5);
+            queue.Add(1);
+            queue.Add(2);
+            queue.Add(3);
+
+            while (!queue.IsEmpty())
+                Console.WriteLine(queue.Remove());
         }
     }
 }
