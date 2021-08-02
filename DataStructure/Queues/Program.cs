@@ -6,7 +6,7 @@ namespace Queues
     {
         static void Main(string[] args)
         {
-            IQueue<int> queue = new CircularCountQueue<int>(5);
+            IQueue<int> queue = new CircularSpecialValueQueue<int>(5);
 
             queue.Add(1);
             queue.Add(2);

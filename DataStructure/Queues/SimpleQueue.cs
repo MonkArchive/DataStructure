@@ -62,6 +62,44 @@ namespace Queues
         }
     }
 
+    public class CircularSpecialValueQueue<T> : BaseCircularQueue<T>
+    {
+        public CircularSpecialValueQueue(int size) : base (size) {}
+
+        public override int Count()
+        {
+            if (front <= rear)
+                return rear - front + 1;
+            else
+                return (size - front) + rear + 1;
+        }
+
+        public override bool IsEmpty()
+        {
+            return (rear == -1); // (front == 0) && (rear == -1);
+        }
+
+        public override bool IsFull()
+        {
+            return (front == (rear + 1) % size) && (rear != -1);
+
+            // return ((front == rear + 1) && (rear != -1)) || ((rear == size - 1 && front == 0));
+        }
+
+        public override T Remove()
+        {
+            // Check If It Is The Last Item In The Queue
+            if (front == rear)
+            {
+                var item = base.Remove();
+                Clear();
+                return item;
+            }
+            else
+                return base.Remove();
+        }
+    }
+
     public class CircularCountQueue<T> : BaseCircularQueue<T>
     {
         protected int count;
@@ -218,7 +256,6 @@ namespace Queues
             // If Queue Is Not Full, Add The Element
             base.Add(item);
         }
-
     }
 
     public interface IQueue<T>
