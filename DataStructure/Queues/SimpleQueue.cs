@@ -62,6 +62,31 @@ namespace Queues
         }
     }
 
+    public class EmptyLocationQueue<T> : BaseCircularQueue<T>
+    {
+        public EmptyLocationQueue(int size) : base(size) {}
+
+        public override int Count()
+        {
+            if (front <= rear)
+                return rear - front + 1;
+            else
+                return (size - front) + rear + 1;
+        }
+
+        public override bool IsEmpty()
+        {
+            return front == (rear + 1) % size;
+        }
+
+        public override bool IsFull()
+        {
+            return (front == rear + 2) ||
+                (front == 0 && rear == size - 2) ||
+                (front == 1 && rear == size - 1);
+        }
+    }
+
     public class CircularSpecialValueQueue<T> : BaseCircularQueue<T>
     {
         public CircularSpecialValueQueue(int size) : base (size) {}

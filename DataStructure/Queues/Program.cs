@@ -6,7 +6,7 @@ namespace Queues
     {
         static void Main(string[] args)
         {
-            IQueue<int> queue = new CircularSpecialValueQueue<int>(5);
+            IQueue<int> queue = new EmptyLocationQueue<int>(5);
 
             queue.Add(1);
             queue.Add(2);
@@ -20,6 +20,8 @@ namespace Queues
             queue.Add(5);
             queue.Add(1);
             queue.Add(2);
+            queue.Add( 4 );
+            queue.Add( 5 );
 
             while (!queue.IsEmpty())
                 Console.WriteLine(queue.Remove());
