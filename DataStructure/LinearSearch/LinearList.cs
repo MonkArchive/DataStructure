@@ -72,6 +72,43 @@ namespace LinearSearch
                 list[i] = Convert.ToInt32( strInput );
             }
         }
+
+        public int[] LaterOccurrences()
+        {
+            int[] result = new int[size];
+
+            for (int i = 0; i < size-1; i++)
+            {
+                int count = 0;
+
+                for (int j = i + 1; j < size - 1; j++)
+                    if (list[i] == list[j])
+                        count++;
+
+                result[i] = count;
+            }
+
+            return result;
+        }
+
+        public int[] FrequencyList()
+        {
+            int[] result = new int[size];
+
+            for (int i = 0; i < size - 1; i++)
+            {
+                int count = 0;
+
+                for (int j = 0; j < size - 1; j++)
+                    if ((i != j) && list[j] == list[i])
+                        ++count;
+
+                result[i] = count + 1;
+            }
+
+            return result;
+        }
+
     }
 
     public interface ILinearList
@@ -82,5 +119,7 @@ namespace LinearSearch
         int FindFirst( int item );          // Return Index Of That Item, -1 if absent
         int FindOccurences( int item );     // Return The Number Of Times Item Is Present In The List
         bool Contains( int item );          // Return True / False Depending Upon If The Item Exists
+        int[] LaterOccurrences();
     }
 }
+

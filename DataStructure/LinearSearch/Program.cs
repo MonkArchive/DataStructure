@@ -11,13 +11,15 @@ namespace LinearSearch
             list.FillWithRandomData();
             list.DisplayData();
 
-            Console.Write( "Enter The Number To Search: " );
-            string strInput = Console.ReadLine();
-            int number = Convert.ToInt32(strInput);
+            //Console.Write( "Enter The Number To Search: " );
+            //string strInput = Console.ReadLine();
+            //int number = Convert.ToInt32(strInput);
 
-            Console.WriteLine( $"{number} Exists In The List At {list.FindFirst( number )} Index" );
-            Console.WriteLine( $"{number} Exists In The List {list.FindOccurences( number )} Times" );
-            Console.WriteLine( $"{number} Present In The List: {list.Contains( number )}" );
+            //Console.WriteLine( $"{number} Exists In The List At {list.FindFirst( number )} Index" );
+            //Console.WriteLine( $"{number} Exists In The List {list.FindOccurences( number )} Times" );
+            //Console.WriteLine( $"{number} Present In The List: {list.Contains( number )}" );
+
+            int[] occ = list.LaterOccurrences();
         }
     }
 }
