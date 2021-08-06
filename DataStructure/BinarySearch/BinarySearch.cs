@@ -13,6 +13,12 @@ namespace BinarySearch
             list = new int[size];
         }
 
+        public int this[int i] 
+        {
+            get { return list[i];  }
+            set { list[i] = value;  }
+        }
+
         public bool Contains( int item )
         {
             return Find( item ) != -1;
@@ -118,5 +124,10 @@ namespace BinarySearch
         void DisplayData();
         int Find( int item );          // Return Index Of That Item, -1 if absent
         bool Contains( int item );          // Return True / False Depending Upon If The Item Exists
+        int this[int index]
+        {
+            get;
+            set;
+        }
     }
 }
