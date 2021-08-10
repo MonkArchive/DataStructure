@@ -74,6 +74,51 @@ namespace Sorting
             x = y;
             y = temp;
         }
+
+        public void InsertionSort()
+        {
+            for (int index = 1; index < size; index++)
+            {
+                int j;
+
+                // Take The Number Out At Index Location
+                int number = list[index];
+
+                // Shift The Numbers To The Right As Long As Previous Number list[j-1]
+                // is greater than number and we are not at the begining (j>0)
+                for (j = index; j > 0 && list[j - 1] > number; j--)
+                    list[j] = list[j - 1];
+
+                list[j] = number;
+            }
+        }
+
+        public void ShellSort()
+        {
+            bool swapped = true;
+            int gap = size / 2;
+
+            // If The Gap Is 1 And No Swaps Happen, The List Is Sorted
+            while (swapped)
+            {
+                swapped = false;
+
+                // Perform Comparison At Gap Distance
+                for (int index = 0; (index + gap) < size; index++)
+                    if (list[index] > list[index + gap])
+                    { 
+                        Swap( ref list[index], ref list[index + gap] );
+
+                        swapped = true;
+                    }
+
+                if (!swapped && gap > 1)
+                { 
+                    gap = gap / 2;
+                    swapped = true;
+                }
+            }
+        }
     }
 
     public interface IArrayList
@@ -82,5 +127,7 @@ namespace Sorting
         void FillWithRandomData( int start = 1, int end = 100 );
         void DisplayData();
         void SelectionSort();
+        void InsertionSort();
+        void ShellSort();
     }
 }
