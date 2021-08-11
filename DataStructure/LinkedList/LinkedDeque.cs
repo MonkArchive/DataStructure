@@ -1,0 +1,6 @@
+﻿namespace LinkedList
+{
+    class LinkedDeque
+    {
+    }
+}
