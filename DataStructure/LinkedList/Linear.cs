@@ -78,12 +78,26 @@ namespace LinkedList
 
         public virtual void InsertAfter( INode<T> node, INode<T> newNode )
         {
-            throw new System.NotImplementedException();
+            newNode.Next = node.Next;
+            node.Next = newNode;
         }
 
         public virtual void InsertBefore( INode<T> node, INode<T> newNode )
         {
-            throw new System.NotImplementedException();
+            if (head == node)
+            {
+                newNode.Next = head;
+                head = newNode;
+            }
+            else
+            {
+                INode<T> p = head;
+
+                while (p.Next != node)
+                    p = p.Next;
+                newNode.Next = node;
+                p.Next = newNode;
+            }
         }
 
         public virtual void InsertionSort()
