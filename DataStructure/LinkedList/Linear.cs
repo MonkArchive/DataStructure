@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Xml.Linq;
 
 namespace LinkedList
 {
@@ -87,7 +88,19 @@ namespace LinkedList
 
         public virtual void InsertionSort()
         {
-            throw new System.NotImplementedException();
+            INode<T> p = head;
+
+            head = null;
+
+            while (p != null)
+            {
+                INode<T> q = p;
+
+                p = p.Next;
+                q.Next = null;      // There Is No Need To Do This, But A Better Technique
+
+                InsertSorted( q );
+            }
         }
 
         public virtual bool IsEmpty()
@@ -106,7 +119,7 @@ namespace LinkedList
             head = node;
         }
 
-        public virtual void Remove( INode<T> node )
+        INode<T> ILinkedList<T>.Remove( INode<T> node )
         {
             throw new System.NotImplementedException();
         }
@@ -125,7 +138,7 @@ namespace LinkedList
         {
             INode<T> node = head;
 
-            while ((node != null) && ( !EqualityComparer<T>.Default.Equals( node.Data,element)))
+            while ((node != null) && (!EqualityComparer<T>.Default.Equals( node.Data, element )))
                 node = node.Next;
 
             return node;
@@ -133,7 +146,77 @@ namespace LinkedList
 
         public virtual void SelectionSort()
         {
-            throw new System.NotImplementedException();
+            INode<T> p = head;
+
+            while (p!= null)
+            {
+                INode<T> q = p.Next;    // Start At The Behinning Of Remaining List
+                INode<T> m = p;         // Assume This Is The Smallest Node
+
+                // Find The Node Having The Smallest Value
+                while (q != null)
+                {
+                    if (q.Compare( m ) < 0)
+                        m = q;
+                    q = q.Next;
+                }
+
+                if (p != m)
+                {
+                    // Swap Values Of m & p
+                    T temp = p.Data;
+                    p.Data = m.Data;
+                    m.Data = temp;
+                }
+
+                // Reduce The List Further
+                p = p.Next;
+            }
+        }
+
+        public bool IsSorted( bool DescendingOrder = false )
+        {
+            if (head != null)
+            {
+                INode<T> node = head;
+
+                if (DescendingOrder)
+                    while ((node.Next != null) && (node.Compare( node.Next ) >= 0))
+                        node = node.Next;
+                else
+                    while ((node.Next != null) && (node.Compare( node.Next ) <= 0))
+                        node = node.Next;
+
+                // 1. List is sorted => node.Next == null
+                // 2. List is unsorted => node.Next != null
+
+                return (node.Next == null);
+            }
+
+            return true;
+        }
+
+        public void InsertSorted( INode<T> newNode )
+        {
+            if (head == null)
+            {
+                head = newNode;
+            }
+            else if (head.Compare( newNode ) >= 0)
+            {
+                newNode.Next = head;
+                head = newNode;
+            }
+            else
+            {
+                INode<T> node = head;
+
+                while ((node.Next != null) && (node.Next.Compare( newNode ) < 0))
+                    node = node.Next;
+
+                newNode.Next = node.Next;
+                node.Next = newNode;
+            }
         }
     }
 
@@ -141,7 +224,7 @@ namespace LinkedList
     {
         void Append( INode<T> node );
         INode<T> Search( T element );
-        void Remove( INode<T> node );
+        INode<T> Remove( INode<T> node );
         void Clear();
         long Count();
         bool IsEmpty();
@@ -156,5 +239,7 @@ namespace LinkedList
         bool ContainsCycles();
         void Display();
         void Prepend( INode<T> node );
+        bool IsSorted( bool DescendingOrder = false );
+        void InsertSorted( INode<T> newNode );      // Assumption: List Is In Ascending Order
     }
 }

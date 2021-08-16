@@ -47,6 +47,13 @@ namespace LinkedList
             //else
             //    Console.WriteLine();
         }
+
+        public int Compare( INode<T> node )
+        {
+            IComparable comparable = (IComparable) Data;
+
+            return comparable.CompareTo( node.Data );
+        }
     }
 
     public interface INode<T>
@@ -57,5 +64,7 @@ namespace LinkedList
         INode<T> Create( T element );
 
         void Display();
+
+        int Compare(INode<T> node);
     }
 }
