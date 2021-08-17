@@ -14,7 +14,7 @@ namespace LinkedList
             list.Append( new Node<int>( 20 ) );
             list.Append( new Node<int>( 10 ) );
 
-            list.SelectionSort();
+            INode<int> head = list.SplitAlternateNode();
         }
     }
 }

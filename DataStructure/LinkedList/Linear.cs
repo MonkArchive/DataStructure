@@ -111,7 +111,7 @@ namespace LinkedList
                 INode<T> q = p;
 
                 p = p.Next;
-                q.Next = null;      // There Is No Need To Do This, But A Better Technique
+                q.Next = null;      // There Is No Need To Do This, But A Better Approach
 
                 InsertSorted( q );
             }
@@ -232,6 +232,57 @@ namespace LinkedList
                 node.Next = newNode;
             }
         }
+
+        public INode<T> SplitAlternateNode()
+        {
+            INode<T> head1 = null, tail1=null;
+            INode<T> head2 = null, tail2=null;
+            INode<T> p;
+
+            while (head != null)
+            {
+                p = GetFirstNode();
+
+                // Add p To First Linked List
+                AppendAtEnd( ref head1, ref tail1, p );
+
+                if (head != null)
+                {
+                    p = GetFirstNode();
+
+                    // Add p to Second Linked List
+                    AppendAtEnd( ref head2, ref tail2, p );
+                }
+            }
+
+            // Before Leaving The Method
+            head = head1;
+            return head2;
+        }
+
+        private INode<T> GetFirstNode()
+        {
+            INode<T> p = head;
+            head = head.Next;
+            p.Next = null;
+            return p;
+        }
+
+        private static void AppendAtEnd( ref INode<T> head, ref INode<T> tail, INode<T> p )
+        {
+            if (head == null)
+                head = tail = p;
+            else
+            {
+                tail.Next = p;
+                tail = p;
+            }
+        }
+
+        public INode<T> SplitInTheMiddle()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     public interface ILinkedList<T>
@@ -255,5 +306,8 @@ namespace LinkedList
         void Prepend( INode<T> node );
         bool IsSorted( bool DescendingOrder = false );
         void InsertSorted( INode<T> newNode );      // Assumption: List Is In Ascending Order
+        INode<T> SplitAlternateNode();
+        INode<T> SplitInTheMiddle();
     }
 }
+
