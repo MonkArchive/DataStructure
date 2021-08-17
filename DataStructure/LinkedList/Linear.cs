@@ -162,7 +162,7 @@ namespace LinkedList
         {
             INode<T> p = head;
 
-            while (p!= null)
+            while (p != null)
             {
                 INode<T> q = p.Next;    // Start At The Behinning Of Remaining List
                 INode<T> m = p;         // Assume This Is The Smallest Node
@@ -281,7 +281,59 @@ namespace LinkedList
 
         public INode<T> SplitInTheMiddle()
         {
-            throw new System.NotImplementedException();
+            INode<T> p = head, q = null;
+
+            if ((p != null) && (p.Next != null))
+            {
+                q = p.Next;
+
+                while (q != null)
+                {
+                    p = p.Next;
+
+                    q = q.Next;
+
+                    if (q != null)
+                        q = q.Next;
+                }
+
+                q = p.Next;
+                p.Next = null;
+            }
+
+            return q;
+        }
+
+        public void Merge( LinearLinkedListSinglePointer<T> another )
+        {
+            INode<T> head3 = null, tail = null ;
+            INode<T> p;
+
+            while ((this.head != null) && (another.head != null))        // this.head -> head1; another.head -> head2
+            { 
+                if (this.head.Compare(another.head) < 0)            // this.head.data < another.head.data
+                {
+                    p = this.head;
+                    this.head = this.head.Next;
+
+                }
+                else // this.head.data >= another.head.data
+                {
+                    p = another.head;
+                    another.head = another.head.Next;
+                }
+
+                p.Next = null;
+                AppendAtEnd( ref head3, ref tail, p );
+            }
+
+            // Either this.head == null || another.head == null
+            if (this.head == null)
+                tail.Next = another.head;
+            else
+                tail.Next = this.head;
+
+            head = head3;
         }
     }
 
