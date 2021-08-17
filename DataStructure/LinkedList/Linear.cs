@@ -8,6 +8,7 @@ namespace LinkedList
     {
         private INode<T> head = null;
 
+        #region Miscellaneous
         public LinearLinkedListSinglePointer()
         {
             head = null;
@@ -28,11 +29,6 @@ namespace LinkedList
             }
         }
 
-        public virtual void BubbleSort()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public virtual void Clear()
         {
             INode<T> node = head;
@@ -43,11 +39,6 @@ namespace LinkedList
                 node.Next = null;
                 node = head;
             }
-        }
-
-        public virtual bool ContainsCycles()
-        {
-            throw new System.NotImplementedException();
         }
 
         public virtual long Count()
@@ -100,31 +91,9 @@ namespace LinkedList
             }
         }
 
-        public virtual void InsertionSort()
-        {
-            INode<T> p = head;
-
-            head = null;
-
-            while (p != null)
-            {
-                INode<T> q = p;
-
-                p = p.Next;
-                q.Next = null;      // There Is No Need To Do This, But A Better Approach
-
-                InsertSorted( q );
-            }
-        }
-
         public virtual bool IsEmpty()
         {
             return (head == null);
-        }
-
-        public virtual void MergeSort()
-        {
-            throw new System.NotImplementedException();
         }
 
         public void Prepend( INode<T> node )
@@ -156,36 +125,6 @@ namespace LinkedList
                 node = node.Next;
 
             return node;
-        }
-
-        public virtual void SelectionSort()
-        {
-            INode<T> p = head;
-
-            while (p != null)
-            {
-                INode<T> q = p.Next;    // Start At The Behinning Of Remaining List
-                INode<T> m = p;         // Assume This Is The Smallest Node
-
-                // Find The Node Having The Smallest Value
-                while (q != null)
-                {
-                    if (q.Compare( m ) < 0)
-                        m = q;
-                    q = q.Next;
-                }
-
-                if (p != m)
-                {
-                    // Swap Values Of m & p
-                    T temp = p.Data;
-                    p.Data = m.Data;
-                    m.Data = temp;
-                }
-
-                // Reduce The List Further
-                p = p.Next;
-            }
         }
 
         public bool IsSorted( bool DescendingOrder = false )
@@ -279,6 +218,51 @@ namespace LinkedList
             }
         }
 
+        #endregion
+
+        #region BubbleSort
+
+        public virtual void BubbleSort()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+        public virtual bool ContainsCycles()
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+        #region InsertionSort
+
+        public virtual void InsertionSort()
+        {
+            INode<T> p = head;
+
+            head = null;
+
+            while (p != null)
+            {
+                INode<T> q = p;
+
+                p = p.Next;
+                q.Next = null;      // There Is No Need To Do This, But A Better Approach
+
+                InsertSorted( q );
+            }
+        }
+
+        #endregion
+
+        #region MergeSort
+
+        public virtual void MergeSort()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public INode<T> SplitInTheMiddle()
         {
             INode<T> p = head, q = null;
@@ -310,8 +294,8 @@ namespace LinkedList
             INode<T> p;
 
             while ((this.head != null) && (another.head != null))        // this.head -> head1; another.head -> head2
-            { 
-                if (this.head.Compare(another.head) < 0)            // this.head.data < another.head.data
+            {
+                if (this.head.Compare( another.head ) < 0)            // this.head.data < another.head.data
                 {
                     p = this.head;
                     this.head = this.head.Next;
@@ -335,6 +319,96 @@ namespace LinkedList
 
             head = head3;
         }
+
+        private void Split( ref INode<T> one, out INode<T> another )
+        {
+            INode<T> p = one, q = null;
+
+            if ((p != null) && (p.Next != null))
+            {
+                q = p.Next;
+
+                while (q != null)
+                {
+                    p = p.Next;
+
+                    q = q.Next;
+
+                    if (q != null)
+                        q = q.Next;
+                }
+
+                q = p.Next;
+                p.Next = null;
+            }
+
+            another = q;
+        }
+
+        private INode<T> Merge( ref INode<T> one, ref INode<T> another )
+        {
+            INode<T> head3 = null, tail = null ;
+            INode<T> p;
+
+            while ((one != null) && (another != null))
+            {
+                if (one.Compare( another ) < 0)
+                {
+                    p = one;
+                    one = one.Next;
+
+                }
+                else
+                {
+                    p = another;
+                    another = another.Next;
+                }
+
+                p.Next = null;
+                AppendAtEnd( ref head3, ref tail, p );
+            }
+
+            tail.Next = one == null ? another : one;
+
+            return head3;
+        }
+
+        #endregion
+
+        #region SelectionSort
+
+        public virtual void SelectionSort()
+        {
+            INode<T> p = head;
+
+            while (p != null)
+            {
+                INode<T> q = p.Next;    // Start At The Behinning Of Remaining List
+                INode<T> m = p;         // Assume This Is The Smallest Node
+
+                // Find The Node Having The Smallest Value
+                while (q != null)
+                {
+                    if (q.Compare( m ) < 0)
+                        m = q;
+                    q = q.Next;
+                }
+
+                if (p != m)
+                {
+                    // Swap Values Of m & p
+                    T temp = p.Data;
+                    p.Data = m.Data;
+                    m.Data = temp;
+                }
+
+                // Reduce The List Further
+                p = p.Next;
+            }
+        }
+
+        #endregion
+
     }
 
     public interface ILinkedList<T>
