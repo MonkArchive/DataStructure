@@ -224,7 +224,30 @@ namespace LinkedList
 
         public virtual void BubbleSort()
         {
-            throw new System.NotImplementedException();
+            if (head != null)
+            {
+                bool isSwapped = true;
+
+                while (isSwapped)
+                {
+                    INode<T> node = head;
+
+                    isSwapped = false;
+
+                    while (node.Next != null)
+                    {
+                        if (node.Compare( node.Next ) > 0)
+                        {
+                            T data = node.Data;
+                            node.Data = node.Next.Data;
+                            node.Next.Data = data;
+                            isSwapped = true;
+                        }
+
+                        node = node.Next;
+                    }
+                }
+            }
         }
 
         #endregion
@@ -233,7 +256,6 @@ namespace LinkedList
         {
             throw new System.NotImplementedException();
         }
-
 
         #region InsertionSort
 
