@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearch", "BinarySearc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorting", "Sorting\Sorting.csproj", "{C044C665-B70C-4083-B4D5-4DDC8E2D64A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{5E710430-05A8-45F5-802B-B6B89A831E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList", "LinkedList\LinkedList.csproj", "{5E710430-05A8-45F5-802B-B6B89A831E26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArmStrong", "ArmStrong\ArmStrong.csproj", "{A94281EF-B681-44D8-9497-BA639D2F06BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{5E710430-05A8-45F5-802B-B6B89A831E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E710430-05A8-45F5-802B-B6B89A831E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E710430-05A8-45F5-802B-B6B89A831E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A94281EF-B681-44D8-9497-BA639D2F06BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A94281EF-B681-44D8-9497-BA639D2F06BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A94281EF-B681-44D8-9497-BA639D2F06BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A94281EF-B681-44D8-9497-BA639D2F06BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

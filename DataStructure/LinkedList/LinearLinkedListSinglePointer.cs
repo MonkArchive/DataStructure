@@ -283,7 +283,7 @@ namespace LinkedList
 
         public virtual void MergeSort()
         {
-            throw new System.NotImplementedException();
+            MergeSort( ref head );
         }
 
         public INode<T> SplitInTheMiddle()
@@ -310,6 +310,7 @@ namespace LinkedList
 
             return q;
         }
+
 
         public void Merge( LinearLinkedListSinglePointer<T> another )
         {
@@ -343,6 +344,20 @@ namespace LinkedList
             head = head3;
         }
 
+        private void MergeSort(ref INode<T> head)
+        {
+            // Check If There Is No Node Or Just One Node
+            if ((head != null) && (head.Next != null))
+            {
+                INode<T> head1;
+
+                Split( ref head, out head1 );
+                MergeSort( ref head );
+                MergeSort( ref head1 );
+                head = Merge( ref head, ref head1 );
+            }
+        }
+
         private void Split( ref INode<T> one, out INode<T> another )
         {
             INode<T> p = one, q = null;
@@ -351,7 +366,7 @@ namespace LinkedList
             {
                 q = p.Next;
 
-                while (q != null)
+                while ((q != null) && (q.Next != null))
                 {
                     p = p.Next;
 
