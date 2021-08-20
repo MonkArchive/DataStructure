@@ -6,7 +6,7 @@ namespace LinkedList
     {
         static void Main( string[] args )
         {
-            ILinkedList<int> list = new LinearLinkedListDoublePointer<int>();
+            ILinkedList<int> list = new DoublyLinkedList<int>();
 
             list.Append( new Node<int>( 25 ) );
             list.Append( new Node<int>( 21 ) );
@@ -15,7 +15,11 @@ namespace LinkedList
             list.Append( new Node<int>( 5 ) );
             list.Append( new Node<int>( 6 ) );
 
-            list.Remove( list.Search( 13 ) );
+            list.InsertBefore( list.Search( 5 ), new Node<int>( 11 ) );
+            list.InsertBefore( list.Search( 13 ), new Node<int>( 17 ) );
+
+            list.Remove( list.Search( 17 ) );
+            list.Remove( list.Search( 21 ) );
             list.Remove( list.Search( 6 ) );
 
             list.Display();

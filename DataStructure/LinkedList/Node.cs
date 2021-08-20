@@ -6,17 +6,18 @@ namespace LinkedList
     {
         public T Data { get; set; }
         public INode<T> Next { get; set; }
+        public INode<T> Prev { get; set; }
 
         public Node()
         {
             Data = default;
-            Next = null;
+            Next = Prev = null;
         }
 
         public Node( T element )
         {
             Data = element;
-            Next = null;
+            Next = Prev = null;
         }
 
         public INode<T> Create( T element )
@@ -26,7 +27,8 @@ namespace LinkedList
                 return new Node<T>
                 {
                     Data = element,
-                    Next = null
+                    Next = null,
+                    Prev = null
                 };
 
             }
@@ -41,11 +43,6 @@ namespace LinkedList
             Console.Write( Data );
 
             Console.Write( Next != null ? " -> " : "\n" );
-
-            //if (Next != null)
-            //    Console.Write( " -> " );
-            //else
-            //    Console.WriteLine();
         }
 
         public int Compare( INode<T> node )
@@ -60,6 +57,7 @@ namespace LinkedList
     {
         public T Data { get; set; }
         public INode<T> Next { get; set; }
+        public INode<T> Prev { get; set; }
 
         INode<T> Create( T element );
 
