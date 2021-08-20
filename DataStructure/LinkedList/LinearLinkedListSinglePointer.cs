@@ -97,7 +97,7 @@ namespace LinkedList
             return (head == null);
         }
 
-        public void Prepend( INode<T> node )
+        public virtual void Prepend( INode<T> node )
         {
             node.Next = head;
             head = node;

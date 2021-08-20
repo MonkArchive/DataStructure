@@ -6,16 +6,19 @@ namespace LinkedList
     {
         static void Main( string[] args )
         {
-            LinearLinkedListSinglePointer<int> list = new LinearLinkedListSinglePointer<int>();
+            ILinkedList<int> list = new LinearLinkedListDoublePointer<int>();
 
             list.Append( new Node<int>( 25 ) );
             list.Append( new Node<int>( 21 ) );
-            list.Append( new Node<int>( 15 ) );
-            list.Append( new Node<int>( 13 ) );
+            list.Prepend( new Node<int>( 15 ) );
+            list.Prepend( new Node<int>( 13 ) );
             list.Append( new Node<int>( 5 ) );
             list.Append( new Node<int>( 6 ) );
 
-            list.MergeSort();
+            list.Remove( list.Search( 13 ) );
+            list.Remove( list.Search( 6 ) );
+
+            list.Display();
         }
 
         //static void Towers( char source, char dest, char temp, int disks )
@@ -34,15 +37,3 @@ namespace LinkedList
         //}
     }
 }
-
-//LinearLinkedListSinglePointer<int> list = new LinearLinkedListSinglePointer<int>();
-//LinearLinkedListSinglePointer<int> another = new LinearLinkedListSinglePointer<int>();
-
-//list.Append( new Node<int>( 25 ) );
-//list.Append( new Node<int>( 21 ) );
-//list.Append( new Node<int>( 15 ) );
-//list.Append( new Node<int>( 13 ) );
-//list.Append( new Node<int>( 5 ) );
-//list.Append( new Node<int>( 6 ) );
-
-//list.BubbleSort( );
