@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorting", "Sorting\Sorting.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList", "LinkedList\LinkedList.csproj", "{5E710430-05A8-45F5-802B-B6B89A831E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArmStrong", "ArmStrong\ArmStrong.csproj", "{A94281EF-B681-44D8-9497-BA639D2F06BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArmStrong", "ArmStrong\ArmStrong.csproj", "{A94281EF-B681-44D8-9497-BA639D2F06BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedStack", "LinkedStack\LinkedStack.csproj", "{B77D3D31-A02B-41D1-AF49-8BEF33066711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedQueue", "LinkedQueue\LinkedQueue.csproj", "{5595CB04-4366-4D12-A9B4-E514A60F4E41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{A94281EF-B681-44D8-9497-BA639D2F06BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A94281EF-B681-44D8-9497-BA639D2F06BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A94281EF-B681-44D8-9497-BA639D2F06BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B77D3D31-A02B-41D1-AF49-8BEF33066711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77D3D31-A02B-41D1-AF49-8BEF33066711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77D3D31-A02B-41D1-AF49-8BEF33066711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77D3D31-A02B-41D1-AF49-8BEF33066711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5595CB04-4366-4D12-A9B4-E514A60F4E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5595CB04-4366-4D12-A9B4-E514A60F4E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5595CB04-4366-4D12-A9B4-E514A60F4E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5595CB04-4366-4D12-A9B4-E514A60F4E41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
