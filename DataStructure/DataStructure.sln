@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedStack", "LinkedStack\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedQueue", "LinkedQueue\LinkedQueue.csproj", "{5595CB04-4366-4D12-A9B4-E514A60F4E41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircularLinkedList", "CircularLinkedList\CircularLinkedList.csproj", "{3CEBD4EB-B7D8-44BE-B6EB-45655FDB7DC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{5595CB04-4366-4D12-A9B4-E514A60F4E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5595CB04-4366-4D12-A9B4-E514A60F4E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5595CB04-4366-4D12-A9B4-E514A60F4E41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CEBD4EB-B7D8-44BE-B6EB-45655FDB7DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CEBD4EB-B7D8-44BE-B6EB-45655FDB7DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CEBD4EB-B7D8-44BE-B6EB-45655FDB7DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CEBD4EB-B7D8-44BE-B6EB-45655FDB7DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
