@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
+using System.Xml.Linq;
 
 namespace LinkedList
 {
@@ -77,12 +77,27 @@ namespace LinkedList
 
         public virtual void InsertAfter( INode<T> node, INode<T> newNode )
         {
-            throw new System.NotImplementedException();
+            newNode.Next = node.Next;
+            node.Next = newNode;
         }
 
         public virtual void InsertBefore( INode<T> node, INode<T> newNode )
         {
-            throw new System.NotImplementedException();
+            if (node == head)
+            {
+                newNode.Next = node;
+                head = newNode;
+            }
+            else
+            {
+                // Get P Point to node before 'node'
+                var p = head;
+
+                while (p.Next != node)
+                    p = p.Next;
+
+                InsertAfter( p, newNode );
+            }
         }
 
         public virtual void InsertionSort()
@@ -108,24 +123,70 @@ namespace LinkedList
 
         public virtual void Remove( INode<T> node )
         {
-            throw new System.NotImplementedException();
+            if (head == node)
+                head = head.Next;
+            else
+            {
+                // Get P Point to node before 'node'
+                var p = head;
+
+                while (p.Next != node)
+                    p = p.Next;
+
+                p.Next = node.Next;
+            }
         }
 
         public virtual void RemoveDuplicates()
         {
-            throw new System.NotImplementedException();
+            var p = head;
+
+            while (p != null)
+            {
+                var q = p.Next;
+
+                while (q != null)
+                {
+                    if (EqualityComparer<T>.Default.Equals( q.Data, p.Data ))
+                    {
+                        var temp = q;
+                        q = q.Next;
+                        Remove( temp );
+                    }
+                    else
+                        q = q.Next;
+                }
+
+                // Go To Next Node
+                p = p.Next;
+            }
         }
 
         public virtual void Reverse()
         {
-            throw new System.NotImplementedException();
+            if (head != null)
+            {
+                // Make p, q Point To The Node After Head
+                var p = head.Next;
+
+                // Make Head A Single Node
+                head.Next = null;
+
+                while (p != null)
+                {
+                    var q = p.Next;
+                    p.Next = head;
+                    head = p;
+                    p = q;
+                }
+            }
         }
 
         public virtual INode<T> Search( T element )
         {
             INode<T> node = head;
 
-            while ((node != null) && ( !EqualityComparer<T>.Default.Equals( node.Data,element)))
+            while ((node != null) && (!EqualityComparer<T>.Default.Equals( node.Data, element )))
                 node = node.Next;
 
             return node;
