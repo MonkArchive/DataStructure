@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LinkedList
+namespace LinkedQueue
 {
     public class Node<T> : INode<T>
     {
@@ -58,11 +58,8 @@ namespace LinkedList
         public T Data { get; set; }
         public INode<T> Next { get; set; }
         public INode<T> Prev { get; set; }
-
         INode<T> Create( T element );
-
         void Display();
-
-        int Compare(INode<T> node);
+        int Compare( INode<T> node );
     }
 }

@@ -1,6 +1,0 @@
-﻿namespace LinkedList
-{
-    class Circular
-    {
-    }
-}

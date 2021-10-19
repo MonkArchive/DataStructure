@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LinkedList
+namespace CircularLinkedList
 {
     public class Node<T> : INode<T>
     {
@@ -41,8 +41,6 @@ namespace LinkedList
         public void Display()
         {
             Console.Write( Data );
-
-            Console.Write( Next != null ? " -> " : "\n" );
         }
 
         public int Compare( INode<T> node )
@@ -63,6 +61,6 @@ namespace LinkedList
 
         void Display();
 
-        int Compare(INode<T> node);
+        int Compare( INode<T> node );
     }
 }
