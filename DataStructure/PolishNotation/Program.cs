@@ -6,11 +6,11 @@ namespace PolishNotation
     {
         static void Main(string[] args)
         {
-            string expr = GetAnInput();
+            string expr = "((1+2)*(3+4))";
 
-            int result = EvalPolish.EvaluatePrefix(expr);
+            var result = ConvertPolish.InfixToPreFix(expr);
 
-            Console.WriteLine($"{expr} is equal to {result}");
+            Console.WriteLine($"{expr} in Popstfix is {result}");
         }
 
         private static string GetAnInput()
