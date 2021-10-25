@@ -22,13 +22,10 @@ namespace PolishNotation
 
             if (ch == '(')
             {
-                // Get The Left Operand
                 var leftOperand = InfixToPostFix(expr);
 
-                // Get The Operator
                 var op = InfixToPostFix(expr);
 
-                // Get The Right Operand
                 var rightOperand = InfixToPostFix(expr);
 
                 // Get The RightParentheses
@@ -51,13 +48,10 @@ namespace PolishNotation
 
             if (ch == '(')
             {
-                // Get The Left Operand
                 var leftOperand = InfixToPreFix(expr);
 
-                // Get The Operator
                 var op = InfixToPreFix(expr);
 
-                // Get The Right Operand
                 var rightOperand = InfixToPreFix(expr);
 
                 // Get The RightParentheses
