@@ -6,7 +6,7 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"Sum of Series For {5} is {Series.Sum_Of_Alternating_Sign_Odds(5)}");
+            Console.WriteLine($"Sum of Series is {AnotherSeries.Series_10(5, 3)}");
         }
     }
 }
