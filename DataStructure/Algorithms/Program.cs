@@ -6,7 +6,7 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"Sum of Series is {AnotherSeries.Series_10(5, 3)}");
+            Factors.GeneratePrimeFactors(100);
         }
     }
 }
