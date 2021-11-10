@@ -6,7 +6,7 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            Factors.GeneratePrimeFactors(100);
+            Console.WriteLine("Converted Answer Is: " + Recursion.DecToBase(254, 16));
         }
     }
 }

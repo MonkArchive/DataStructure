@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CircularLinkedList", "Circu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolishNotation", "PolishNotation\PolishNotation.csproj", "{C1573A17-60F2-4B00-9CA2-2D54C6980806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{2C729219-E795-4F3D-9568-BB9B8FB8980A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms", "Algorithms\Algorithms.csproj", "{2C729219-E795-4F3D-9568-BB9B8FB8980A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchTree", "BinarySearchTree\BinarySearchTree.csproj", "{391C278A-9BBD-487E-A77B-13D10A0FCE04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{2C729219-E795-4F3D-9568-BB9B8FB8980A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C729219-E795-4F3D-9568-BB9B8FB8980A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C729219-E795-4F3D-9568-BB9B8FB8980A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{391C278A-9BBD-487E-A77B-13D10A0FCE04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391C278A-9BBD-487E-A77B-13D10A0FCE04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391C278A-9BBD-487E-A77B-13D10A0FCE04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391C278A-9BBD-487E-A77B-13D10A0FCE04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
