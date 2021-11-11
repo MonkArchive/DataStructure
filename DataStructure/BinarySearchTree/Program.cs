@@ -27,6 +27,10 @@ namespace BinarySearchTree
             Console.WriteLine($"This Tree Has {binaryTree.CountLeaves()} Leaves");
             Console.WriteLine($"This Tree Has {binaryTree.CountNodes()} Nodes");
             Console.WriteLine($"This Tree Has Height of {binaryTree.Height()}");
+            Console.WriteLine($"This Tree Has Width of {binaryTree.Width()}");
+
+            binaryTree.Delete(binaryTree.Search(5));
+
         }
 
         public static void PrintNodeData(TreeNode node)

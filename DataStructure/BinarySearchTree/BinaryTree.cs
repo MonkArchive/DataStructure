@@ -48,6 +48,21 @@ namespace BinarySearchTree
             }
         }
 
+        public int Width()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(TreeNode node)
+        {
+            DeleteNode(_root, node);
+        }
+
+        private void DeleteNode(TreeNode root, TreeNode node)
+        {
+            throw new NotImplementedException();
+        }
+
         public void InOrder(Action<TreeNode> ProcessNode)
         {
             InOrderTraversal(_root, ProcessNode);
