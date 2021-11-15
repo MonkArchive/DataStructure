@@ -55,12 +55,66 @@ namespace BinarySearchTree
 
         public void Delete(TreeNode node)
         {
-            DeleteNode(_root, node);
+            _root = DeleteNode(_root, node);
         }
 
-        private void DeleteNode(TreeNode root, TreeNode node)
+        private TreeNode FindParent(TreeNode root, TreeNode node)
         {
-            throw new NotImplementedException();
+            if (root == node)
+                return root;
+            else if (root.Data > node.Data)
+                return FindParent(root.Left, node);
+            else
+                return FindParent(root.Right, node);
+        }
+
+        private TreeNode DeleteNode(TreeNode root, TreeNode node)
+        {
+            if (root.Data > node.Data)
+                root.Left = DeleteNode(root.Left, node);
+            else if (root.Data < node.Data)
+                root.Right = DeleteNode(root.Right, node);
+            else
+            {
+                // The root is same as node
+                if (root.Left is null && root.Right is null)
+                    root = null;
+
+                else if (root.Left is null)
+                    root = root.Right;
+
+                else if (node.Right is null)
+                    root = root.Left;
+
+                else
+                {
+                    // Both The Children Are There
+
+                    // Find The Node With The Highest Value In The Left SubTree Of root
+                    // Let us call this node 'Candidate'
+                    TreeNode candidate = MaxDataNodeInLeftSubTree(root);
+
+                    // Exchange the value of 'root' and 'Candidate'
+                    root.Data = candidate.Data;
+
+                    // Now, Remove The 'Candidate' Because Candidate will have none or one child
+                    root.Left = DeleteNode(root.Left, candidate);
+                }
+            }
+
+            return root;
+        }
+
+        private TreeNode MaxDataNodeInLeftSubTree(TreeNode root)
+        {
+            // Go to node.Left 
+            var node = root.Left;
+
+            // and keep on going node.Right as long as we can
+            while (node.Right is not null)
+                node = node.Right;
+
+            return node;
         }
 
         public void InOrder(Action<TreeNode> ProcessNode)
