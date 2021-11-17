@@ -215,6 +215,27 @@ namespace BinarySearchTree
             }
         }
 
+        private void PrintLeaves(TreeNode root, Action<TreeNode> ProcessNode)
+        {
+            if (root is not null)
+            {
+                PrintLeaves(root.Left, ProcessNode);
+
+                if (root.Left == null && root.Right == null)
+                    ProcessNode(root);
+
+                PrintLeaves(root.Right, ProcessNode);
+            }
+        }
+
+        private int SumOfNodes(TreeNode root)
+        {
+            if (root is null)
+                return 0;
+            else
+                return SumOfNodes(root.Left) + SumOfNodes(root.Right) + root.Data;
+        }
+
         private void PreOrderTraversal(TreeNode root, Action<TreeNode> ProcessNode)
         {
             if (root is not null)
