@@ -53,6 +53,23 @@ namespace BinarySearchTree
             throw new NotImplementedException();
         }
 
+        public void MakeSumTree()
+        {
+            MakeSumTree(_root);
+        }
+
+        private int MakeSumTree(TreeNode root)
+        {
+            if (root == null)
+                return 0;
+            else
+            {
+                root.Data = root.Data + MakeSumTree(root.Left) + MakeSumTree(root.Right);
+
+                return root.Data;
+            }
+        }
+
         public void Delete(TreeNode node)
         {
             _root = DeleteNode(_root, node);
