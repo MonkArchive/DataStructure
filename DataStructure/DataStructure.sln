@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms", "Algorithms\Al
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearchTree", "BinarySearchTree\BinarySearchTree.csproj", "{391C278A-9BBD-487E-A77B-13D10A0FCE04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionTree", "ExpressionTree\ExpressionTree.csproj", "{84E11353-8398-45BE-BCBA-AB5488928D06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpressionTree", "ExpressionTree\ExpressionTree.csproj", "{84E11353-8398-45BE-BCBA-AB5488928D06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVL_Trees", "AVL_Trees\AVL_Trees.csproj", "{0FE2F6C2-2A08-4121-83AC-E311DDB6CC61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{84E11353-8398-45BE-BCBA-AB5488928D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84E11353-8398-45BE-BCBA-AB5488928D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84E11353-8398-45BE-BCBA-AB5488928D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FE2F6C2-2A08-4121-83AC-E311DDB6CC61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FE2F6C2-2A08-4121-83AC-E311DDB6CC61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FE2F6C2-2A08-4121-83AC-E311DDB6CC61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FE2F6C2-2A08-4121-83AC-E311DDB6CC61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
