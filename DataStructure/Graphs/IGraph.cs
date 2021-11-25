@@ -9,10 +9,8 @@
         void AddEdge(string x, string y);
         void RemoveEdge(string x, string y);
 
-        void BreadthFirstSearch();
-        void DepthFirstSearch();
-
-        int ShortestPath(string x, string y);
+        void BreadthFirstSearch(string x);
+        void DepthFirstSearch(string x);
     }
 
     public interface IWeightedGraph : IGraph
@@ -20,6 +18,6 @@
         void AddEdge(string x, string y, int w);
         int GetEdgeWeight(string x, string y);
         void SetEdgeWeight(string x, string y, int w);
-        int ShortestWeightPath(string x, string y);
+        int ShortestPath(string x, string y);
     }
 }

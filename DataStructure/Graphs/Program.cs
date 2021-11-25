@@ -6,7 +6,7 @@ namespace Graphs
     {
         static void Main(string[] args)
         {
-            Graph graph = new Graph(5);
+            WeightedGraph graph = new WeightedGraph(5);
 
             graph.AddVertex("A");
             graph.AddVertex("B");
@@ -14,17 +14,15 @@ namespace Graphs
             graph.AddVertex("D");
             graph.AddVertex("E");
 
-            graph.AddEdge("A", "B");
-            graph.AddEdge("A", "C");
-            graph.AddEdge("B", "D");
-            graph.AddEdge("C", "D");
-            graph.AddEdge("C", "E");
-            graph.AddEdge("D", "E");
+            graph.AddEdge("A", "B", 20);
+            graph.AddEdge("A", "C", 100);
+            graph.AddEdge("B", "D", 40);
+            graph.AddEdge("C", "D", 35);
+            graph.AddEdge("C", "E", 27);
+            graph.AddEdge("D", "E", 25);
 
-            Console.WriteLine(graph.Adjacent("B", "D"));
-            Console.WriteLine(graph.Adjacent("B", "E"));
-
-            var neighbors = graph.Neighbors("D");
+            Console.WriteLine(
+                $"Distance From A To E Is {graph.ShortestPath("A", "B")}");
         }
     }
 }

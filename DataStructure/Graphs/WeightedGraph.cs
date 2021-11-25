@@ -1,4 +1,6 @@
-﻿namespace Graphs
+﻿using System;
+
+namespace Graphs
 {
     public class WeightedGraph : Graph, IWeightedGraph
     {
@@ -27,9 +29,34 @@
             _adMatrix[indexY, indexX] = w; // Skip This In Directed Graph
         }
 
-        public virtual int ShortestWeightPath(string x, string y)
+        public virtual int ShortestPath(string x, string y)
         {
-            throw new System.NotImplementedException();
+            int[,] distance = new int[_nVertex, _nVertex];
+            var indexX = GetVertexIndex(x);
+            var indexY = GetVertexIndex(y);
+
+            // Initialize The Distance Matrix
+            for (int i = 0; i < _nVertex; i++)
+                for (int j = 0; j < _nVertex; j++)
+                { 
+                    distance[i, j] = _adMatrix[i, j] == Int32.MinValue
+                        ? 1000000
+                        : _adMatrix[i, j];
+
+                    if (i == j)
+                        distance[i, j] = 0;
+                }
+
+            // Find All The Shortest Paths In The Graph
+            // Floyd Warshall Algorithm O(N^3)
+            for (int k = 0; k < _nVertex; k++)
+                for (int i = 0; i < _nVertex; i++)
+                    for (int j = 0; j < _nVertex; j++)
+                        if (distance[i, k] + distance [k, j] < distance [i, j])
+                            distance [i, j] = distance[i, k] + distance[k, j];
+
+            // Return Result
+            return distance[indexX, indexY];
         }
     }
 }

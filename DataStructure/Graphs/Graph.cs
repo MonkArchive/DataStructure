@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Windows.Markup;
 
 namespace Graphs
 {
@@ -59,14 +61,76 @@ namespace Graphs
             return _adMatrix[indexX, indexY] == 1;
         }
 
-        public virtual void BreadthFirstSearch()
+        public virtual void BreadthFirstSearch(string x)
         {
-            throw new NotImplementedException();
+            CircularCountQueue<int> queue = new CircularCountQueue<int>(20);
+            bool[] visited = new bool[_nVertex];    // By Default It is all 'false'
+
+            // Get The Index Of The Starting Node
+            var indexX = GetVertexIndex(x);
+
+            visited[indexX] = true;
+            queue.Add(indexX);
+
+            while (!queue.IsEmpty())
+            {
+                // Remove The Next Node From The Queue
+                var v = queue.Remove();
+
+                // Visit The Vertex
+                Console.Write($"--> {_vertices[v]} ");
+
+                // Get All Its Neighbors
+                var neighbors = Neighbors(_vertices[v]);
+
+                foreach (var neighbor in neighbors)
+                {
+                    var i = GetVertexIndex(neighbor);
+
+                    if (visited[i] == false)
+                    {
+                        visited[i] = true;
+                        queue.Add(i);
+                    }
+                }
+            }
+
         }
 
-        public virtual void DepthFirstSearch()
+        public virtual void DepthFirstSearch(string x)
         {
-            throw new NotImplementedException();
+            Stack<int> stack = new Stack<int>(20);
+            bool[] visited = new bool[_nVertex];    // By Default It is all 'false'
+
+            // Get The Index Of The Starting Node
+            var indexX = GetVertexIndex(x);
+
+            visited[indexX] = true;
+            stack.Push(indexX);
+
+            while (!stack.IsEmpty())
+            {
+                // Remove The Next Node From The Queue
+                var v = stack.Pop();
+
+                // Visit The Vertex
+                Console.Write($"--> {_vertices[v]} ");
+
+                // Get All Its Neighbors
+                var neighbors = Neighbors(_vertices[v]);
+
+                foreach (var neighbor in neighbors)
+                {
+                    var i = GetVertexIndex(neighbor);
+
+                    if (visited[i] == false)
+                    {
+                        visited[i] = true;
+                        stack.Push(i);
+                    }
+                }
+            }
+
         }
 
         public virtual string[] Neighbors(string x)
@@ -80,7 +144,7 @@ namespace Graphs
                 if (_adMatrix[indexX, i] == 1)
                     result[neighbors++] = _vertices[i];
 
-            return result;
+            return result.Where(x => x is not null).ToArray();
         }
 
         public virtual void RemoveEdge(string x, string y)
@@ -104,11 +168,6 @@ namespace Graphs
                 _adMatrix[indexX, i] = Int32.MinValue;
                 _adMatrix[i, indexX] = Int32.MinValue;
             }
-        }
-
-        public virtual int ShortestPath(string x, string y)
-        {
-            throw new NotImplementedException();
         }
 
         protected virtual void IntializeGraph()
