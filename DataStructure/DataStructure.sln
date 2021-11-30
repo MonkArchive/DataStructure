@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AVL_Trees", "AVL_Trees\AVL_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp", "CSharp\CSharp.csproj", "{493505A3-9AF1-443F-814D-8ED0CE6F51A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphs", "Graphs\Graphs.csproj", "{B0DCB1CF-E36E-426A-BCB0-94E3D72A140F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphs", "Graphs\Graphs.csproj", "{B0DCB1CF-E36E-426A-BCB0-94E3D72A140F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "Hashing\Hashing.csproj", "{C007C428-40F4-417E-BF4C-EAB3C26827EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{B0DCB1CF-E36E-426A-BCB0-94E3D72A140F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0DCB1CF-E36E-426A-BCB0-94E3D72A140F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0DCB1CF-E36E-426A-BCB0-94E3D72A140F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C007C428-40F4-417E-BF4C-EAB3C26827EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C007C428-40F4-417E-BF4C-EAB3C26827EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C007C428-40F4-417E-BF4C-EAB3C26827EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C007C428-40F4-417E-BF4C-EAB3C26827EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
