@@ -9,7 +9,7 @@
             list.FillWithRandomData();
             list.DisplayData();
 
-            list.ShellSort();
+            list.QuickSort();
 
             list.DisplayData();
         }
