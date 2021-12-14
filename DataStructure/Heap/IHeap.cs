@@ -14,5 +14,5 @@ public interface IHeap
     bool IsEmpty();
     void SiftUp(int startIndex, int endIndex);
     int Search(int item);
-    void Sort();
+    void Sort(int nElements);
 }

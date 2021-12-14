@@ -55,34 +55,39 @@ public class Heap : IHeap
 
     public int DeleteMax()
     {
-        throw new NotImplementedException();
+        int oldRoot = _list[0];
+
+        // Move Last Element To Root
+        _list[0] = _list[_totalElements - 1];
+
+        // Reduce The Size Of Heap By 1
+        _totalElements--;
+
+        // Rebuild The Heap
+        Heapify(_totalElements - 1);
+
+        // Return Max
+        return oldRoot;
     }
 
     public int FindMax()
     {
-        throw new NotImplementedException();
+        return _list[0];
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="index">The Index UpTo Which We Want To Heapify</param>
     public void Heapify(int index)
     {
-        int leftChildIndex = 2 * index + 1;
-        int rightChildIndex = 2 * index + 2;
-        int largest = index;
+        int lastIndex = 0;
 
-        // Here Comparing Left Child With The Parent Node
-        if ((leftChildIndex <= _totalElements) && (_list[leftChildIndex] > _list[largest]))
-            largest = leftChildIndex;
-
-        // Here Comparing Right Child With The Greater Of The Parent An Left Child
-        if ((rightChildIndex <= _totalElements) && (_list[rightChildIndex] > _list[largest]))
-            largest = rightChildIndex;
-
-        // If largest == index, It is Already A MaxHeap. Else We Need To Heapify 'this' and the subsequent Subtree
-        if (largest != index)
+        while (lastIndex <= index)
         {
-            swap(ref _list[index], ref _list[largest]);
+            SiftUp(0, lastIndex);
 
-            Heapify(largest);
+            lastIndex++;
         }
     }
 
@@ -93,6 +98,11 @@ public class Heap : IHeap
         v2 = v;
     }
 
+    /// <summary>
+    /// Inserts The Element At The End Of The Heap And Maintains Heap Order
+    /// </summary>
+    /// <param name="item"></param>
+    /// <exception cref="Exception"></exception>
     public void Insert(int item)
     {
         if (_totalElements == _max)
@@ -103,19 +113,46 @@ public class Heap : IHeap
         SiftUp(0, _totalElements - 1);
     }
 
+    /// <summary>
+    /// Inserts The Element At The End And DOESN'T Main The Heap Order
+    /// </summary>
+    /// <param name="item"></param>
+    public void Add(int item)
+    {
+        if (_totalElements == _max)
+            throw new Exception($"Heap Elements Can't Exceed {_max}");
+
+        _list[_totalElements++] = item;
+    }
+
     public bool IsEmpty()
     {
         return _totalElements == 0;
     }
 
+    /// <summary>
+    /// Replace The Existing Root With newRoot
+    /// </summary>
+    /// <param name="newRoot"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public int Replace(int newRoot)
     {
-        throw new NotImplementedException();
+        int oldRoot = _list[0];
+
+        _list[0] = newRoot;
+        Heapify(_totalElements - 1);
+
+        return oldRoot;
     }
 
     public int Search(int item)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < _totalElements; i++)
+            if (_list[i] == item)
+                return i;
+
+        return -1;
     }
 
     /// <summary>
@@ -132,7 +169,7 @@ public class Heap : IHeap
             int parentIndex = ParentIndex(childIndex);
 
             if (_list[childIndex] > _list[parentIndex])
-                swap (ref _list[childIndex], ref _list[parentIndex]);
+                swap(ref _list[childIndex], ref _list[parentIndex]);
 
             childIndex = parentIndex;
         }
@@ -143,8 +180,23 @@ public class Heap : IHeap
         return _totalElements;
     }
 
-    public void Sort()
+    /// <summary>
+    /// Assuming we Are Given An Unordered Array (NO HEAP)
+    /// </summary>
+    /// <param name="nElements">Total Number Of Elements To Be Sorted</param>
+    public void Sort(int nElements)
     {
-        throw new NotImplementedException();
+        int lastIndex = nElements - 1;
+
+        while (lastIndex > 0)
+        {
+            // Build The Heap, Max Is At The Root
+            Heapify(lastIndex);
+
+            // Swap Root & Last Element
+            swap (ref _list[0], ref _list[lastIndex]);
+
+            lastIndex--;
+        }
     }
 }
