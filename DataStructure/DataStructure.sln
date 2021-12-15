@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphs", "Graphs\Graphs.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing", "Hashing\Hashing.csproj", "{C007C428-40F4-417E-BF4C-EAB3C26827EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heap", "Heap\Heap.csproj", "{221A99D8-EF7A-4179-99A7-1EA9AA58B7E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heap", "Heap\Heap.csproj", "{221A99D8-EF7A-4179-99A7-1EA9AA58B7E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic", "Dynamic\Dynamic.csproj", "{C0D56765-B275-4685-A2EE-32A1DD7CE0D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{221A99D8-EF7A-4179-99A7-1EA9AA58B7E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{221A99D8-EF7A-4179-99A7-1EA9AA58B7E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{221A99D8-EF7A-4179-99A7-1EA9AA58B7E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D56765-B275-4685-A2EE-32A1DD7CE0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D56765-B275-4685-A2EE-32A1DD7CE0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D56765-B275-4685-A2EE-32A1DD7CE0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D56765-B275-4685-A2EE-32A1DD7CE0D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
