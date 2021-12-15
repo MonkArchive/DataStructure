@@ -25,4 +25,16 @@ public class Alogorithms
 
         return f;
     }
+
+    /// <summary>
+    /// Return The Sum Of Factorials Of X & Y, i.e., X! + Y!
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
+    public static int FactSum(int x, int y)
+    {
+
+        return 0;
+    }
 }
